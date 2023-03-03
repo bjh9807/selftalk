@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>회원가입 페이지</title>
+    <style>
+    .container {
+    max-width: 560px;
+    }
+    </style>
+</head>
+<body>
+<div class="container">
+<div>
+    <label for="customer_id" th:text="#{label.SignUP.name}">id</label>
+    <input type="text" id="customer_id" class="form-control" placeholder="id을 입력하세요">
+
+</div>
+<div>
+    <label for="customer_password" th:text="#{label.SignUP.password}">비밀번호</label>
+    <input type="text" id="customer_password" class="form-control" placeholder="비밀번호을 입력하세요">
+
+</div>
+
+<div>
+    <label for="customer_password2" th:text="#{label.SignUP.password2}">비밀번호 확인</label>
+    <input type="text" id="customer_password2"  class="form-control" placeholder="비밀번호을 입력하세요">
+
+</div>
+<div>
+    <label for="customer_mail" th:text="#{label.SignUP.Mail}">e-mail</label>
+    <input type="text" id="customer_mail" class="form-control" placeholder="e-mail을 입력하세요">
+
+</div>
+</div>
+</body>
+</html>

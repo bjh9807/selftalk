@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>myhome2</title>
+    <style>
+    .container {
+    max-width: 500px;
+    }
+    </style>
+</head>
+<body>
+<div class="col">
+    <div class="container">
+        <button class="w-100 btn btn-primary btn-lg" type="customer_id"
+                th:text="#{myhome.makepersonality}"
+                onclick="location.href='/TalkRoom/makePersonality'" th:onclick="|location.href='@{/TalkRoom/makePersonality}'|">저장</button>
+    </div>
+    <div class="container">
+        <button class="w-100 btn btn-primary btn-lg" type="customer_id"
+                th:text="#{myhome.talkpersonality}"
+                onclick="location.href='/TalkRoom/talkPersonality'" th:onclick="|location.href='@{/TalkRoom/talkPersonality}'|">저장</button>
+    </div>
+    <div class="container">
+        <button class="w-100 btn btn-primary btn-lg" type="customer_id"
+                th:text="#{myhome.post}"
+                onclick="location.href='/TalkRoom/post'" th:onclick="|location.href='@{/TalkRoom/post}'|">저장</button>
+    </div>
+</div>
+</body>
+</html>
