@@ -5,28 +5,44 @@
     <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
     <title>myhome2</title>
     <style>
-    .container {
-    max-width: 500px;
+    .containe {
+    width:400px;
+    height:300px;
+    border:3px solid black;
+    border-radius:10%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    align-items: center;
+    }
+
+    .coler{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+
     }
     </style>
 </head>
 <body>
-<div class="col">
-    <div class="container">
-        <button class="w-100 btn btn-primary btn-lg" type="customer_id"
+<div class="coler">
+        <div class="containe" type="customer_id"
                 th:text="#{myhome.makepersonality}"
-                onclick="location.href='/TalkRoom/makePersonality'" th:onclick="|location.href='@{/TalkRoom/makePersonality}'|">저장</button>
-    </div>
-    <div class="container">
-        <button class="w-100 btn btn-primary btn-lg" type="customer_id"
+                onclick="location.href='/TalkRoom/makePersonality'" th:onclick="|location.href='@{/TalkRoom/makePersonality}'|">저장</div>
+
+
+        <div  class="containe" type="customer_id"
                 th:text="#{myhome.talkpersonality}"
-                onclick="location.href='/TalkRoom/talkPersonality'" th:onclick="|location.href='@{/TalkRoom/talkPersonality}'|">저장</button>
-    </div>
-    <div class="container">
-        <button class="w-100 btn btn-primary btn-lg" type="customer_id"
+                onclick="location.href='/TalkRoom/talkPersonality'" th:onclick="|location.href='@{/TalkRoom/talkPersonality}'|">저장</div>
+
+        <div  class="containe" type="customer_id"
                 th:text="#{myhome.post}"
-                onclick="location.href='/TalkRoom/post'" th:onclick="|location.href='@{/TalkRoom/post}'|">저장</button>
-    </div>
+                onclick="location.href='/TalkRoom/post'" th:onclick="|location.href='@{/TalkRoom/post}'|">저장</div>
+
 </div>
 </body>
 </html>
