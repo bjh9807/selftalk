@@ -18,11 +18,11 @@ public class PersonalityRepository {
         return personality;
     }
 
-    public Personality findById(Long id) {
+    public static Personality findById(Long id) {
         return store.get(id);
     }
 
-    public List<Personality> findAll() {
+    public static List<Personality> findAll() {
         return new ArrayList<>(store.values());
     }
 

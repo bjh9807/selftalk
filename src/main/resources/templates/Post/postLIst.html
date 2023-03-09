@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+    <style>
+        .root{
+        color: red;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="root">
+        <h2 >게시판</h2>
+    </div>
+    <div class="post">
+        <section class="article-list table-common con">
+            <table  class="table" border="1">
+                <thead>
+                <tr>
+                    <th>제목1</th>
+                    <th>내용2</th>
+                    <th>내용3</th>
+                    <th>내용4</th>
+                    <th>내용5</th>
+                    <th>내용6</th>
+                    <th>내용7</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="personality : ${personalities}">
+                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${personality.id})}" th:text="${personality.id}">제목1</a></td>
+                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${personality.id})}" th:text="${personality.face}">제목1</a></td>
+                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${personality.id})}" th:text="${personality.content}">제목1</a></td>
+
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+
+</body>
+</html>

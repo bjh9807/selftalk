@@ -4,12 +4,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import selfTalk.domain.customer.Customer;
+import selfTalk.domain.customer.CustomerRepository;
 import selfTalk.domain.customer.Personality;
+import selfTalk.domain.customer.PersonalityRepository;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,7 +19,8 @@ import java.util.Map;
 @RequestMapping("/")
 @RequiredArgsConstructor
 public class makeControllerV1 {
-
+    private final PersonalityRepository personality;
+    private final CustomerRepository customerRepository;
     @ModelAttribute("emotions")
     public Map<String, String> emotions() {
         Map<String, String> emotions = new LinkedHashMap<>();
@@ -50,7 +50,7 @@ public class makeControllerV1 {
     public String makePersonality(Model model){
         model.addAttribute("personality", new Personality());
         log.info("User in makePersonality");
-        return "/TalkRoom/makePersonality";
+        return "TalkRoom/makePersonality";
     }
 
     @PostMapping("/TalkRoom/makePersonality")
@@ -59,28 +59,38 @@ public class makeControllerV1 {
         return "TalkRoom/myHome";
     }
 
-    @GetMapping("/TalkRoom/post")
-    public String post(Model model){
-        log.info("User in post");
-        return "/TalkRoom/post";
-    }
-
     @GetMapping("/TalkRoom/talkPersonality")
     public String talkPersonality(Model model){
         log.info("User in talkPersonality");
-        return "/TalkRoom/talkPersonality";
+        return "TalkRoom/talkPersonality";
     }
 
     //회원가입 페이지
     @GetMapping("/SignUp/JoinTheMembership")
     public String signup(Model model){
         log.info("User in JoinTheMembership");
-        return "/SignUp/JoinTheMembership";
+        return "SignUp/JoinTheMembership";
     }
 
     @GetMapping("/Signup/JoinTheMembership-2")
     public String signup2(Model model){
         log.info("User in JoinTheMembership-2");
-        return "/Signup/JoinTheMembership-2";
+        return "Signup/JoinTheMembership-2";
+    }
+
+    @GetMapping("/Post/postLIst")
+    public String post(Model model){
+        List<Personality> personalities = PersonalityRepository.findAll();
+        model.addAttribute("personalities", personalities);
+        log.info("User in post");
+        return "Post/postLIst";
+    }
+
+    @GetMapping("/Post/postCon/{personalityid}")
+    public String post2(Model model , @PathVariable Long personalityid){
+        Personality p = PersonalityRepository.findById(personalityid);
+        model.addAttribute("personality", p);
+        log.info("User in postCon");
+        return "Post/postCon";
     }
 }
