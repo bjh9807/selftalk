@@ -20,20 +20,18 @@
             <table  class="table" border="1">
                 <thead>
                 <tr>
+                    <th>게시판넘버</th>
                     <th>제목1</th>
-                    <th>내용2</th>
-                    <th>내용3</th>
-                    <th>내용4</th>
-                    <th>내용5</th>
-                    <th>내용6</th>
-                    <th>내용7</th>
+                    <th>내용</th>
+                    <th>인격체</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="personality : ${personalities}">
-                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${personality.id})}" th:text="${personality.id}">제목1</a></td>
-                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${personality.id})}" th:text="${personality.face}">제목1</a></td>
-                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${personality.id})}" th:text="${personality.content}">제목1</a></td>
+                <tr th:each="postElement : ${postElements}">
+                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${postElement.postId})}" th:text="${postElement.postId}">포스트넘버1</a></td>
+                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${postElement.postId})}" th:text="${postElement.name}">제목1</a></td>
+                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${postElement.postId})}" th:text="${postElement.content}">내용1</a></td>
+                    <td> <a href="postCon.html" th:href="@{/Post/postCon/{personalityid}(personalityid=${postElement.postId})}" th:text="${postElement.personalityId}">내용1</a></td>
 
                 </tr>
                 </tbody>

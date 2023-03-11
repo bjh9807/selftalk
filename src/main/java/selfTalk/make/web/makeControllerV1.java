@@ -5,10 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import selfTalk.domain.customer.Customer;
-import selfTalk.domain.customer.CustomerRepository;
-import selfTalk.domain.customer.Personality;
-import selfTalk.domain.customer.PersonalityRepository;
+import selfTalk.domain.customer.*;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -21,6 +18,7 @@ import java.util.Map;
 public class makeControllerV1 {
     private final PersonalityRepository personality;
     private final CustomerRepository customerRepository;
+    private final PostElmentRepository postElmentRepository;
     @ModelAttribute("emotions")
     public Map<String, String> emotions() {
         Map<String, String> emotions = new LinkedHashMap<>();
@@ -80,16 +78,16 @@ public class makeControllerV1 {
 
     @GetMapping("/Post/postLIst")
     public String post(Model model){
-        List<Personality> personalities = PersonalityRepository.findAll();
-        model.addAttribute("personalities", personalities);
+        List<PostElement> postElement = PostElmentRepository.findAll();
+        model.addAttribute("postElements", postElement);
         log.info("User in post");
         return "Post/postLIst";
     }
 
     @GetMapping("/Post/postCon/{personalityid}")
     public String post2(Model model , @PathVariable Long personalityid){
-        Personality p = PersonalityRepository.findById(personalityid);
-        model.addAttribute("personality", p);
+        PostElement p = postElmentRepository.findById(personalityid);
+        model.addAttribute("PostElement", p);
         log.info("User in postCon");
         return "Post/postCon";
     }
