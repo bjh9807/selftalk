@@ -12,7 +12,7 @@ public class PostElmentRepository {
     private static final Map<Long, PostElement> store = new HashMap<>(); //static
     private static long sequence = 0L; //static
 
-    public PostElement save(PostElement postElement) {
+    public static PostElement save(PostElement postElement) {
         postElement.setPostId(++sequence);
         store.put(postElement.getPostId(), postElement);
         return postElement;

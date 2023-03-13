@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import selfTalk.domain.customer.*;
 
 import java.util.LinkedHashMap;
@@ -90,5 +91,25 @@ public class makeControllerV1 {
         model.addAttribute("PostElement", p);
         log.info("User in postCon");
         return "Post/postCon";
+    }
+
+    @GetMapping("/Post/postUpload")
+    public String postUploadGet(Model model) {
+        model.addAttribute("PostElement", new PostElement());
+
+        return "/Post/postUpload";
+    }
+
+    @PostMapping("/Post/postUpload")
+    public String postUploadPost(@ModelAttribute PostElement postElement, Model model) {
+        // RedirectAttributes redirectAttributes
+        log.info("업롤드={}");
+        PostElement savePost = PostElmentRepository.save(postElement);
+        List<PostElement> postElements = PostElmentRepository.findAll();
+        model.addAttribute("postElement", postElements);
+//        redirectAttributes.addAttribute("postId", savePost.getPostId());
+//        redirectAttributes.addAttribute("status", true);
+        return "/Post/postList";
+
     }
 }

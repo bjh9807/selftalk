@@ -22,12 +22,10 @@ public class PostElement {
     private int personalityId;
 
 
-    public PostElement(String name, String content, String picture, int customerId, int personalityId){
+    public PostElement(String name, String content, String picture){
         this.name=name;
         this.content=content;
         this.picture=picture;
 
-        this.customerId=customerId;
-        this.personalityId=personalityId;
     }
 }

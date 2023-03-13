@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
     <title>게시판 올리기</title>
 </head>
-<body>
+<style>
+    .container {
+    max-width: 560px;
+    }
+    .col{
+    margin: 50px;
+    }
+    </style>
+<body class="container">
+<form action="postList.html" th:action th:object="${PostElement}" method="post">
+<div>
+    <label for="post_name" th:text="#{post.upload.name}">제목</label>
+    <input type="text" id="post_name" th:field=*{name} class="form-control" placeholder="제목을 입력하세요">
 
+</div>
+<div>
+    <label for="post_content" th:text="#{post.upload.content}">내용</label>
+    <input type="text" id="post_content"  th:field=*{content} class="form-control" placeholder="내용을 입력하세요">
+
+</div>
+
+    <div>
+        <label for="post_picture" th:text="#{post.upload.picture}">내용</label>
+        <input type="text" id="post_picture"  th:field=*{content} class="form-control" placeholder="사진을 입력하세요">
+
+    </div>
+
+    <div class="col">
+        <button class="w-100 btn btn-secondary btn-lg"
+                onclick="location.href='/Post/postLIst'" th:onclick="|location.href='@{/Post/postLIst}'|"
+                type="submit">올리기</button>
+    </div>
+</form>
 </body>
 </html>

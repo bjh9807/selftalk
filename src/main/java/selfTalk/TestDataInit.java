@@ -19,7 +19,7 @@ public class TestDataInit {
     public void init() {
        personalityRepository.save(new Personality("itemA", "A", "smile"));
        personalityRepository.save(new Personality("itemB", "B", "angry"));
-       postElmentRepository.save(new PostElement("게시판1","ㅈ같네", "사진1", 1,1));
-       postElmentRepository.save(new PostElement("게시판2","ㅈ같네2", "사진2", 2,1));
+       postElmentRepository.save(new PostElement("게시판1","ㅈ같네", "사진1"));
+       postElmentRepository.save(new PostElement("게시판2","ㅈ같네2", "사진2"));
    }
 }
