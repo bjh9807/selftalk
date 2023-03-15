@@ -17,7 +17,7 @@ import java.util.Map;
 @RequestMapping("/")
 @RequiredArgsConstructor
 public class makeControllerV1 {
-    private final PersonalityRepository personality;
+    private final PersonalityRepository personalityRepository;
     private final CustomerRepository customerRepository;
     private final PostElmentRepository postElmentRepository;
     @ModelAttribute("emotions")
@@ -61,6 +61,8 @@ public class makeControllerV1 {
     @GetMapping("/TalkRoom/talkPersonality")
     public String talkPersonality(Model model){
         log.info("User in talkPersonality");
+        List<Personality> personalities = personalityRepository.findAll();
+        model.addAttribute("personalities",personalities);
         return "TalkRoom/talkPersonality";
     }
 
@@ -112,4 +114,6 @@ public class makeControllerV1 {
         return "/Post/postList";
 
     }
+
+
 }

@@ -17,8 +17,8 @@ public class TestDataInit {
      */
    @PostConstruct
     public void init() {
-       personalityRepository.save(new Personality("itemA", "A", "smile"));
-       personalityRepository.save(new Personality("itemB", "B", "angry"));
+       personalityRepository.save(new Personality("분노", "인생을 한심하게 보는 내 안의 열등감", "angry"));
+       personalityRepository.save(new Personality("웃음", "인생을 살아가게 하는 원동력", "smile"));
        postElmentRepository.save(new PostElement("게시판1","ㅈ같네", "사진1"));
        postElmentRepository.save(new PostElement("게시판2","ㅈ같네2", "사진2"));
    }
