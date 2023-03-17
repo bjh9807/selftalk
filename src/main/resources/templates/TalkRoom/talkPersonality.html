@@ -42,10 +42,10 @@
     <table class="table">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>name</th>
-            <th>content</th>
-            <th>face</th>
+            <th th:text="#{chat.list.id}">ID</th>
+            <th th:text="#{chat.list.name}">name</th>
+            <th th:text="#{chat.list.content}">content</th>
+            <th th:text="#{chat.list.face}">face</th>
         </tr>
         </thead>
         <tbody>
@@ -57,8 +57,6 @@
                     </div>
                     <div class="content">
                         <p th:text="|${personality.name}:${personality.content}|">이름</p>
-
-
                     </div>
                 </div>
             </td>
