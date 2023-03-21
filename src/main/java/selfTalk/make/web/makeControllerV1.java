@@ -98,12 +98,12 @@ public class makeControllerV1 {
     @GetMapping("/Post/postUpload")
     public String postUploadGet(Model model) {
         model.addAttribute("PostElement", new PostElement());
-
+        log.info("User in upload");
         return "/Post/postUpload";
     }
 
     @PostMapping("/Post/postUpload")
-    public String postUploadPost(@ModelAttribute PostElement postElement, Model model) {
+    public String postUploadPost(@ModelAttribute PostElement postElement, Model model, RedirectAttributes redirectAttributes) {
         // RedirectAttributes redirectAttributes
         log.info("업롤드={}");
         PostElement savePost = PostElmentRepository.save(postElement);
@@ -111,7 +111,7 @@ public class makeControllerV1 {
         model.addAttribute("postElement", postElements);
 //        redirectAttributes.addAttribute("postId", savePost.getPostId());
 //        redirectAttributes.addAttribute("status", true);
-        return "/Post/postList";
+        return "redirect:/Post/postLIst";
 
     }
 
