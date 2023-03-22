@@ -40,8 +40,20 @@ public class makeControllerV1 {
     }
 
     @GetMapping("/TalkRoom/myHome")
-    public String myhome(Model model) {
-        log.info("User in myhome");
+    public String myhome(@CookieValue(name="memberId",required = false) Long Id, Model model) {
+        log.info("User MYHOME");
+        if(Id==null){
+            log.info("User MYHOME1");
+            return "Login/Login";
+        }
+
+        Customer loginMember= customerRepository.findById(Id);
+        if(loginMember==null){
+            log.info("User MYHOME2");
+            return "Login/Login";
+        }
+
+        model.addAttribute("member",loginMember);
         return "TalkRoom/myHome";
     }
 

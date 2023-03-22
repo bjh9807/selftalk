@@ -7,10 +7,11 @@ import java.util.List;
 @Data
 public class Customer {
 
-    private Long id;
-    private String password;
-    private String name;
-    private String email;
+    private Long id; //고유 번호
+    private String password; //패스워드
+    private String email; // 아이디
+    private String name; //이름
+
     private String created_date;
     private List<String> emotions;
 

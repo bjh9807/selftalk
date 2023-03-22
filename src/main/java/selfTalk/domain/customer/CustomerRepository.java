@@ -2,10 +2,7 @@ package selfTalk.domain.customer;
 
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class CustomerRepository {
@@ -20,6 +17,18 @@ public class CustomerRepository {
 
     public Customer findById(Long id) {
         return store.get(id);
+    }
+
+    public Optional<Customer> findByLoginId(String loginId){
+        List<Customer> all= findAll();
+        for(Customer m:all){
+            if(m.getEmail().equals(loginId)){
+                return Optional.of(m);
+            }
+        }
+        return Optional.empty();
+        //    return findAll().stream().
+        //            filter(m->m.getLoginId().equals(loginId)).findFirst();
     }
 
     public List<Customer> findAll() {
