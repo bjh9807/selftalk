@@ -1,4 +1,4 @@
-package selfTalk.domain.customer;
+package selfTalk.domain.personality;
 
 import lombok.Data;
 

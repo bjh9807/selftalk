@@ -3,6 +3,10 @@ package selfTalk;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import selfTalk.domain.customer.*;
+import selfTalk.domain.personality.Personality;
+import selfTalk.domain.personality.PersonalityRepository;
+import selfTalk.domain.post.PostElement;
+import selfTalk.domain.post.PostElmentRepository;
 
 import javax.annotation.PostConstruct;
 

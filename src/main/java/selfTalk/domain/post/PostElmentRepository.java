@@ -1,6 +1,7 @@
-package selfTalk.domain.customer;
+package selfTalk.domain.post;
 
 import org.springframework.stereotype.Repository;
+import selfTalk.domain.post.PostElement;
 
 import java.util.ArrayList;
 import java.util.HashMap;

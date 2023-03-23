@@ -1,4 +1,4 @@
-package selfTalk.make.web;
+package selfTalk.make.web.login;
 
 import lombok.Data;
 import lombok.NonNull;
@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class LoginForm {
-    @NotNull
+    //@NotNull
     private String loginId;
-    @NotNull
+    //@NotNull
     private String password;
 }
