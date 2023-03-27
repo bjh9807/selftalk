@@ -26,10 +26,10 @@ public class SignupController {
         return "SignUp/JoinTheMembership";
     }
 
-    @GetMapping("/Signup/JoinTheMembership-2")
-    public String signup2(Model model){
-        log.info("User in JoinTheMembership-2");
-        return "Signup/JoinTheMembership-2";
-    }
+//    @GetMapping("/Signup/JoinTheMembership-2")
+//    public String signup2(Model model){
+//        log.info("User in JoinTheMembership-2");
+//        return "Signup/JoinTheMembership-2";
+//    }
 
 }
