@@ -40,8 +40,8 @@ public class LoginController {
 //            return "/Login/Login";
 //        }
 
-        HttpSession session=request.getSession();
-        session.setAttribute("loginMember",loginMember);
+//        HttpSession session=request.getSession(false);
+//        session.setAttribute("loginMember",loginMember);
         return "redirect:/TalkRoom/myHome";
     }
 
