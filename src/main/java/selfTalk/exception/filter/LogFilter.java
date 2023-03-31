@@ -9,7 +9,7 @@ import java.util.UUID;
 public class LogFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        log.info("log filter init");
+        //log.info("log filter init");
     }
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
@@ -18,17 +18,17 @@ public class LogFilter implements Filter {
         String requestURI = httpRequest.getRequestURI();
         String uuid = UUID.randomUUID().toString();
         try {
-            log.info("REQUEST [{}][{}][{}]", uuid, request.getDispatcherType(), requestURI);
+            //log.info("REQUEST [{}][{}][{}]", uuid, request.getDispatcherType(), requestURI);
             chain.doFilter(request, response);
         } catch (Exception e) {
-            log.info("Exception {}", e.getMessage());
+            //log.info("Exception {}", e.getMessage());
             throw e;
         } finally {
-            log.info("RESPONSE [{}][{}][{}]", uuid, request.getDispatcherType(), requestURI);
+            //log.info("RESPONSE [{}][{}][{}]", uuid, request.getDispatcherType(), requestURI);
         }
     }
     @Override
     public void destroy() {
-        log.info("log filter destroy");
+        //log.info("log filter destroy");
     }
 }

@@ -7,8 +7,8 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class LoginForm {
-    //@NotNull
+    @NotNull
     private String loginId;
-    //@NotNull
+    @NotNull
     private String password;
 }

@@ -7,6 +7,7 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import selfTalk.exception.filter.LogFilter;
 import selfTalk.exception.interceptor.LogInterceptor;
+import selfTalk.exception.interceptor.LoginCheckInterceptor;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
@@ -21,7 +22,17 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/css/**", "/*.ico"
                         , "/error", "/error-page/**");
+
+        registry.addInterceptor(new LoginCheckInterceptor())
+                .order(2)
+                .addPathPatterns("/**")
+                .excludePathPatterns(
+                        "/", "/members/add", "/login", "/logout",
+                        "/css/**", "/*.ico", "/error"
+                );
     }
+
+
 
 //    @Bean
 //    public FilterRegistrationBean logFilter(){

@@ -26,18 +26,7 @@ public class makeControllerV1 {
     private final CustomerRepository customerRepository;
     private final PostElmentRepository postElmentRepository;
 
-    @GetMapping("/")
-    public String myhome(Customer loginMember, Model model,@ModelAttribute("loginForm") LoginForm loginform) {
-        log.info("User MYHOME");
 
-        if(loginMember==null){
-            log.info("User MYHOME2");
-            return "Login/Login";
-        }
-
-        model.addAttribute("member",loginMember);
-        return "Login/Login";
-    }
     //@SessionAttribute(name = "loginMember",required = false) Customer loginMember,
 
 //    @GetMapping("/Personality/talkPersonality")
