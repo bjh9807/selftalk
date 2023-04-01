@@ -7,7 +7,7 @@
     <style>
     .containe {
     width:400px;
-    height:300px;
+    height:200px;
     border:3px solid black;
     border-radius:10%;
     text-align: center;
@@ -24,6 +24,12 @@
         justify-content: center;
         align-items: center;
         min-height: 100vh;
+
+    }
+    .logout{
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
     }
     </style>
@@ -43,6 +49,11 @@
                 th:text="#{myhome.post}"
                 onclick="location.href='/Post/postLIst'" th:onclick="|location.href='@{/Post/postLIst}'|">저장</div>
 
+</div>
+<div class="logout">
+    <form th:action="@{/logout}" method="post">
+        <button class="w-100 btn btn-dark btn-lg" type="submit">로그아웃</button>
+    </form>
 </div>
 </body>
 </html>

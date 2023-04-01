@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import selfTalk.domain.customer.Customer;
 import selfTalk.domain.customer.CustomerRepository;
 import selfTalk.domain.login.LoginService;
+import selfTalk.make.web.session.SessionConst;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +31,7 @@ public class LoginController {
 //    }
 
     @GetMapping("/")
-    public String myhome(Customer loginMember, Model model, @ModelAttribute("loginForm") LoginForm loginform) {
+    public String myhome(@SessionAttribute(name= SessionConst.LOGIN_MEMBER,required = false) Customer loginMember, Model model, @ModelAttribute("loginForm") LoginForm loginform) {
         log.info("User MYHOME");
 
         if(loginMember==null){
@@ -39,7 +40,7 @@ public class LoginController {
         }
 
         model.addAttribute("member",loginMember);
-        return "Login/Login";
+        return "TalkRoom/myHome";
     }
 
     @PostMapping("/")
@@ -51,7 +52,7 @@ public class LoginController {
         Customer loginMember=loginService.login(loginform.getLoginId(),loginform.getPassword());
 
         if(loginMember==null){
-            bindingResult.reject("loginFail","아이디 또는 비밀번호가 맞지 않는다.");
+            bindingResult.reject("loginFail","아이디 또는 비밀번호가 맞지 않습니다.");
             return "Login/Login";
         }
 

@@ -12,16 +12,16 @@
 
     <form class="logo" th:action th:object="${loginForm}" method="post">
 
-<!--      <div th:if="${#fields.hasGlobalErrors()}">-->
-<!--        <p class="field-error" th:each="err : ${#fields.globalErrors()}"-->
-<!--           th:text="${err}">전체 오류 메시지</p>-->
-<!--      </div>-->
+      <div th:if="${#fields.hasGlobalErrors()}">
+        <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+           th:text="${err}">전체 오류 메시지</p>
+      </div>
 
     <input type="text" placeholder="loginId" id="loginId" class="account" th:field="*{loginId}">
-<!--    <div class="field-error" th:errors="*{loginId}" />-->
+    <div class="field-error" th:errors="*{loginId}" />
 
     <input type="password" placeholder="Password" id="password" class="account" th:field="*{password}">
-<!--    <div class="field-error" th:errors="*{password}" />-->
+    <div class="field-error" th:errors="*{password}" />
 
     <button id="login" class="account" onclick="location.href='/TalkRoom/myHome'" th:onclick="|location.href='@{/TalkRoom/myHome}'|">login</button>
     <button id="signup" class="account" onclick="location.href='/SignUp/JoinTheMembership'" th:onclick="|location.href='@{/SignUp/JoinTheMembership}'|">Sign up</button>
